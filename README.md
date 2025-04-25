@@ -6,4 +6,4 @@ Sentinel. Sistema de moderación automatizado con tecnologías de IA (SENTINEL: 
  ▪ Objetivos del Proyecto
  a) Objetivo General
  Desarrollar un sistema de moderación de contenido altamente eficiente y adaptable, basado en inteligencia artificial, capaz de identificar y eliminar de manera proactiva contenido dañino, inapropiado o que infrinja las políticas de una plataforma en línea, garantizando así un entorno digital seguro y respetuoso." 
- 
+ hola
