@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📰 Publicaciones Aprobadas | ModerAI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="{{ url_for('static', path='css/publicaciones.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1><i class="fas fa-newspaper"></i> Publicaciones Aprobadas</h1>
+      <a href="/publicador" class="new-post-button"><i class="fas fa-plus"></i> Nueva publicación</a>
+    </header>
+
+    <div class="filters">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Buscar publicaciones...">
+      </div>
+      <select id="dateFilter">
+        <option value="all">Todas las fechas</option>
+        <option value="today">Hoy</option>
+        <option value="week">Esta semana</option>
+        <option value="month">Este mes</option>
+      </select>
+    </div>
+
+    <div id="contenedor" class="posts-container">
+      <div class="skeleton-loading">
+        <div class="skeleton-header"></div>
+        <div class="skeleton-content"></div>
+        <div class="skeleton-image"></div>
+      </div>
+      <div class="skeleton-loading">
+        <div class="skeleton-header"></div>
+        <div class="skeleton-content"></div>
+      </div>
+    </div>
+
+    <div class="empty-state hidden" id="emptyState">
+      <i class="fas fa-inbox"></i>
+      <h3>No hay publicaciones aún</h3>
+      <p>Cuando se aprueben publicaciones, aparecerán aquí.</p>
+      <a href="/publicador" class="cta-button">Crear primera publicación</a>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', path='js/publicaciones.js') }}"></script>
+</body>
+</html>

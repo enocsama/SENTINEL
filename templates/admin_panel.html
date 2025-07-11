@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>📊 Panel de Administración</title>
+  <link rel="stylesheet" href="/static/admin.css" />
+</head>
+<body>
+  <h1>📊 Estadísticas</h1>
+  <div id="estadisticas">
+    <p>Cargando...</p>
+  </div>
+
+  <script>
+    async function cargarEstadisticas() {
+      const res = await fetch("/estadisticas");
+      const data = await res.json();
+      document.getElementById("estadisticas").innerHTML = `
+        <p>Total de publicaciones: <strong>${data.publicaciones}</strong></p>
+        <p>Total rechazadas: <strong>${data.rechazadas}</strong></p>
+        <p>Porcentaje de rechazo: <strong>${data.porcentaje_rechazo}%</strong></p>
+      `;
+    }
+
+    document.addEventListener("DOMContentLoaded", cargarEstadisticas);
+  </script>
+</body>
+</html>

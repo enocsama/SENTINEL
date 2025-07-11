@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📤 Publicar Entrada | ModerAI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="{{ url_for('static', path='css/publicador.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1><i class="fas fa-share-square"></i> Nueva Publicación</h1>
+      <a href="/ver_publicaciones" class="back-button"><i class="fas fa-arrow-left"></i> Ver publicaciones</a>
+    </header>
+
+    <form id="formulario" class="publication-form">
+      <div class="form-group">
+        <label for="texto">Contenido:</label>
+        <textarea id="texto" name="texto" rows="5" required placeholder="Escribe aquí tu contenido..."></textarea>
+        <div class="char-counter"><span id="charCount">0</span>/500</div>
+      </div>
+
+      <div class="form-group">
+        <label for="imagen">Imagen (opcional):</label>
+        <div class="file-upload">
+          <input type="file" id="imagen" name="imagen" accept="image/*" hidden>
+          <button type="button" class="upload-button" id="uploadTrigger">
+            <i class="fas fa-cloud-upload-alt"></i> Seleccionar imagen
+          </button>
+          <span id="fileName">Ningún archivo seleccionado</span>
+        </div>
+        <div id="imagePreview" class="image-preview"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="umbral">Sensibilidad de moderación: <span id="valorUmbral" class="threshold-value">0.3</span></label>
+        <div class="slider-container">
+          <input type="range" id="umbral" name="umbral" min="0.1" max="1.0" step="0.1" value="0.3" class="slider">
+          <div class="slider-labels">
+            <span>Baja</span>
+            <span>Media</span>
+            <span>Alta</span>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-button">
+        <i class="fas fa-paper-plane"></i> Enviar para moderación
+      </button>
+    </form>
+
+    <div id="resultado" class="result-container hidden">
+      <div class="result-content">
+        <h3 id="resultTitle"></h3>
+        <div id="resultDetails"></div>
+        <div class="button-group">
+          <button id="closeResult" class="close-button">Cerrar</button>
+          <button id="editContent" class="edit-button">Editar contenido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', path='js/publicador.js') }}"></script>
+</body>
+</html>
